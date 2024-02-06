@@ -19,6 +19,7 @@ public class Journal
         entry._date = DateTime.Now.ToShortDateString();
         entry._quote = qgen.GetRandomQuote();
         entry._prompt = pgen.GetRandomPrompt();
+        Console.WriteLine(entry._quote);
         Console.WriteLine(entry._prompt);
         entry._response = Console.ReadLine();
         _entries.Add(entry);
