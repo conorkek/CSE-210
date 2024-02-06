@@ -4,7 +4,10 @@ public class Entry
 {
     // ATTRIBUTES
     // date (DATETIME)
-    public DateTime _date;
+    public string _date;
+
+    // quote (string)
+    public string _quote;
 
     // prompt (string)
     public string _prompt;
@@ -18,7 +21,9 @@ public class Entry
     public void Display()
     {
         //  PUT date
-        Console.WriteLine($"Date: {_date.ToShortDateString()}");
+        Console.WriteLine($"Date: {_date}");
+
+        Console.WriteLine($"Quote of the Day: {_quote}");
 
         //  PUT prompt
         Console.WriteLine($"Prompt: {_prompt}");
