@@ -8,6 +8,7 @@ public class Journal
     // list _entries (Its a List of Entry)
     public List<Entry> _entries = new();
     public PromptGenerator pgen = new();
+    public QuoteGenerator qgen = new();
     
     // METHODS
 
@@ -15,7 +16,8 @@ public class Journal
     public void AddEntry()
     {
         Entry entry = new();
-        entry._date = DateTime.Now;
+        entry._date = DateTime.Now.ToShortDateString();
+        entry._quote = qgen.GetRandomQuote();
         entry._prompt = pgen.GetRandomPrompt();
         Console.WriteLine(entry._prompt);
         entry._response = Console.ReadLine();
@@ -28,7 +30,7 @@ public class Journal
     {
         // Loop to iterate through _entries
         // Display entries using the display function from entry.
-        System.Console.WriteLine("ALL Entries:");
+        System.Console.WriteLine("All Entries:");
         foreach (Entry entry in _entries)
         {
             entry.Display();
@@ -38,11 +40,9 @@ public class Journal
 
     // Save()
 
-    public void Save()
+    public void Save(string fileName)
     {
         // Don't forget to put this at the top, so C# knows where to find the StreamWriter class
-
-        string fileName = "myFile.txt";
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
@@ -50,31 +50,34 @@ public class Journal
             // Iterate(Loop) through _entries and save the Date | Prompt | Response in order you prefer.
             foreach (Entry entry in _entries)
             {
-                
+                outputFile.WriteLine($"{entry._date}|{entry._quote}|{entry._prompt}|{entry._response}");
             }
-
-            // You can add text to the file with the WriteLine method
-            outputFile.WriteLine("This will be the first line in the file.");
-            
-            // You can use the $ and include variables just like with Console.WriteLine
-            string color = "Blue";
-            outputFile.WriteLine($"My favorite color is {color}");
         }
     }
 
     // Load()
 
-    public void Load()
+    public void Load(string filename)
     {
-        string filename = "myFile.txt";
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        _entries.Clear();
+        string[] lines = File.ReadAllLines(filename);
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(",");
+            string[] parts = line.Split("|");
 
-            string firstName = parts[0];
-            string lastName = parts[1];
+            string date = parts[0];
+            string quote = parts[1];
+            string prompt = parts[2];
+            string response = parts[3];
+
+
+            Entry entry = new();
+            entry._date = date;
+            entry._quote = quote;
+            entry._prompt = prompt;
+            entry._response = response;
+            _entries.Add(entry);
         }
     }
 } 
