@@ -14,6 +14,8 @@ public class PromptGenerator
         "How did your mood change throughout the day, if at all?",
         "What was the highlight of your day?"
     };
+
+    
     public Random rng = new();
 
     // METHOD
