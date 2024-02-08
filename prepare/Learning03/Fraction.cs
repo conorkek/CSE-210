@@ -2,8 +2,11 @@ using System;
 
 public class Fraction
 {
+    // Attributes
     private int _top;
     private int _bottom;
+
+    // Constructors
     public Fraction()
     {
         _top = 1;
@@ -18,5 +21,17 @@ public class Fraction
     {
         _top = top;
         _bottom = bottom;
+    }
+
+    // Methods
+    public string GetFractionString()
+    {
+        string fraction = $"{_top}/{_bottom}";
+        return fraction;
+    }
+
+    public double GetDecimalValue()
+    {
+        return (double)_top / (double)_bottom;
     }
 }
