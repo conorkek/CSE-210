@@ -16,15 +16,19 @@ public class BreathingActivity: Activity
         DateTime activityLength = startTime.AddSeconds(_duration);
         while (startTime < activityLength)
         {
-            Console.Write($"Breathe in...");
+            Console.WriteLine("\n\n");
+            Console.Write("Breathe in...");
             CountdownTimer(_inhaleTime);
-
-            Console.Write($"Breathe out...");
+            Console.WriteLine();
+            Console.Write("Now breathe out...");
             CountdownTimer(_exhaleTime);
+
             
             startTime = DateTime.Now;
         }
         Console.WriteLine();
+        Console.WriteLine();
         EndingMessage();
+        Console.Clear();
     }
 }
