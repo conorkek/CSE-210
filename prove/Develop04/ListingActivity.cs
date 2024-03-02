@@ -37,15 +37,16 @@ public class ListingActivity: Activity
     }
     public void GetResponse()
     {   
-
+        Console.Write("> ");
         string response = Console.ReadLine();
+        _response.Add(response);
         DateTime startTime = DateTime.Now;
         DateTime activityLength = startTime.AddSeconds(_duration);
         while (startTime < activityLength)
         {
-            _response.Add(response);
-
+            Console.Write("> ");
             response = Console.ReadLine();
+            _response.Add(response);
             startTime = DateTime.Now;
         }
     }
@@ -57,10 +58,18 @@ public class ListingActivity: Activity
 
     public void DisplayPrompt()
     {
-        Console.WriteLine("List as many responses as you can to the following prompt: \b");
-        Console.WriteLine(" --- " + GetRandomPrompt() + " --- " + "\b");
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("List as many responses as you can to the following prompt: ");
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine(" --- " + GetRandomPrompt() + " --- ");
+        Console.WriteLine();
+        Console.WriteLine();
         Console.Write("You may begin in: ");
-        CountdownTimer(_duration);
+        CountdownTimer(5);
+        Console.WriteLine();
+        Console.WriteLine();
     }
 
     public void RunListingActivity()
@@ -71,5 +80,6 @@ public class ListingActivity: Activity
         DisplayListLength();
         Console.WriteLine();
         EndingMessage();
+        Console.Clear();
     }
 }
