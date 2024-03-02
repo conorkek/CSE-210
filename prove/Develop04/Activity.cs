@@ -10,7 +10,7 @@ public class Activity
     
     protected void StartingMessage()
     {
-        Console.WriteLine($"Welcome to the {_name}. \n");
+        Console.WriteLine($"Welcome to the {_name} Activity! \n");
         Console.WriteLine(_description + "\n");
         Console.Write("How long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
@@ -19,12 +19,15 @@ public class Activity
 
         Console.Write("Get ready... ");
         Spinner(5);
+
+        Console.WriteLine();
     }
     protected void EndingMessage()
     {
         Console.WriteLine("Well done!");
+        Spinner(5);
+        Console.WriteLine();
         Console.WriteLine($"You have completed {_duration} seconds of the {_name} activity.");
-
         Spinner(5);
     }
     
