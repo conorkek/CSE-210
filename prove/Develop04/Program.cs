@@ -7,6 +7,7 @@ class Program
         bool running = true;
         while (running)
         {
+            Console.Clear();
             Console.WriteLine("Menu Options");
             Console.WriteLine("1. Start Breathing Activity");
             
@@ -18,6 +19,7 @@ class Program
 
             Console.Write("Select a choice from the menu: ");
             string userInput = Console.ReadLine();
+            Console.Clear();
 
             // Use a SWITCH and CASE statment to handle the users input
 
