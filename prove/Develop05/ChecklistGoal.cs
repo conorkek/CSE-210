@@ -24,7 +24,7 @@ public class ChecklistGoal : Goal
     // END
     public override string DisplayGoal()
     {
-        return base.DisplayGoal() + $" - [{_current}/{_target}]";
+        return base.DisplayGoal() + $" -- Currently completed [{_current}/{_target}]";
     }
     // PUBLIC OVERRIDE RecordEvent()
     //      PUT "How many times did you complete a session of the Goal?"
