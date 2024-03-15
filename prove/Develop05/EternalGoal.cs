@@ -9,7 +9,8 @@ public class EternalGoal: Goal
     // END
     public override int RecordEvent()
     {
-        Console.WriteLine("Congratulations, you have been awarded points for working on your eternal goal!");
+        Console.WriteLine($"Congratulations, you have been awarded {_points} for working on your eternal goal!");
+        
         return _points;
     }
 }
