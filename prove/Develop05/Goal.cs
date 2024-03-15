@@ -4,8 +4,9 @@ public abstract class Goal
 {
     protected string _name;
     protected string _description;
-    protected int _points;
+    public int _points;
     protected bool _isComplete;
+    public bool IsComplete {get{return _isComplete;} set{_isComplete = value;}}
 
     public Goal(string name, string description, int points, bool isComplete)
     {
@@ -24,7 +25,7 @@ public abstract class Goal
     // END
     public virtual string DisplayGoal()
     {
-        return $"[{_isComplete} ? 'X' : ' '] {_name} : {_description}";
+        return $". [{(_isComplete ? 'X' : ' ')}] {_name}  ({_description})";
     }
 
     // PUBLIC VIRTUAL GetSaveString()
