@@ -39,13 +39,13 @@ public class ChecklistGoal : Goal
     //          RETURN _points * _sessionAmount
     public override int RecordEvent()
     {
-        Console.WriteLine("How many times did you complete a session of the goal?");
+        Console.Write("How many times did you complete a session of the goal?");
         int _sessionAmount = int.Parse(Console.ReadLine());
         _current += _sessionAmount;
         if (_current >= _target)
         {
             _isComplete = true;
-            Console.WriteLine("Congratulations! You completed your goal!");
+            Console.WriteLine($"Congratulations! You completed your goal and get a bonus of {_bonus} points!");
             return (_points * _sessionAmount) + _bonus;
         }
         else
